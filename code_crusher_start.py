@@ -41,9 +41,8 @@ LOSE = -1
 #  Insert your implementation of createBoard here
 #
 def createBoard(rows, cols, syms):
-  matrix = [[randrange(0, syms) for _ in range(cols)] for _ in range(rows)]
-  return matrix
-#
+  board = [[randrange(0, syms) for _ in range(cols)] for _ in range(rows)]
+  return board
 #  Modify the board by swapping two pieces.
 #
 #  Parameters:
@@ -54,8 +53,7 @@ def createBoard(rows, cols, syms):
 #  Returns: None -- the game board passed as a parameter is modified
 #
 def swap(board, r1, c1, r2, c2):
-  pass
-
+  board[r1][c1], board[r2][c2] = board[r2][c2], board[r1][c1]
 #
 #  Modify the board to clear all occurences of a given piece, replacing them
 #  with EMPTY.
