@@ -1,6 +1,8 @@
 #
 #  The location to insert your code is clearly marked -- it begins on line 32.
 #
+import random
+
 from SimpleGraphics import *
 from random import randrange, shuffle
 from time import time, sleep
@@ -38,7 +40,9 @@ LOSE = -1
 #
 #  Insert your implementation of createBoard here
 #
-
+def createBoard(rows, cols, syms):
+  matrix = [[randrange(0, syms) for _ in range(cols)] for _ in range(rows)]
+  return matrix
 #
 #  Modify the board by swapping two pieces.
 #
