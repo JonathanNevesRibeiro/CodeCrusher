@@ -65,8 +65,9 @@ def swap(board, r1, c1, r2, c2):
 #  Returns: None -- the game board passed as a parameter is modified
 #
 def clearAll(board, sym):
-  pass
-
+  for linha in range(len(board)):
+    for coluna in range(len(board[linha])):
+      if board[linha][coluna] == sym: board[linha][coluna] = EMPTY
 #
 #  Insert your implementations of vLineAt and hLineAt here
 #
