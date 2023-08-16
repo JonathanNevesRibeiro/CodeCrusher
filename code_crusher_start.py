@@ -84,8 +84,36 @@ def clearAll(board, sym):
 #
 #  Returns: True if the proposed swap creates a line.  False otherwise.
 #
+def vLineAt(board, r1, c1):
+  if (r1 != 0 and r1 != len(board)):
+    if (board[r1][c1] == board[r1 + 1][c1]) and (board[r1][c1] == board[r1 - 1][c1]): return True
+  if (r1 != 0 and r1 != 1):
+    if (board[r1][c1] == board[r1 - 1][c1]) and (board[r1][c1] == board[r1 - 2][c1]): return True
+  if (r1 != len(board)-1 and r1 != len(board)):
+    if (board[r1][c1] == board[r1 + 1][c1]) and (board[r1][c1] == board[r1 + 2][c1]): return True
+
+  return False
+
+
+def hLineAt(board, r1, c1):
+  if (c1 != 0 and c1 != len(board)):
+    if (board[r1][c1 - 1] == board[r1][c1]) and (board[r1][c1 + 1] == board[r1][c1]): return True
+  if (c1 != 0 and c1 != 1):
+    if (board[r1][c1] == board[r1][c1 - 1]) and (board[r1][c1] == board[r1][c1 - 2]): return True
+  if (c1 != len(board) and c1 != len(board)-1):
+    if (board[r1][c1] == board[r1][c1 + 1]) and (board[r1][c1] == board[r1][c1 + 2]): return True
+
+  return False
 def canSwap(board, r1, c1, r2, c2):
-  return True
+  swap(board,r1,c1,r2,c2)
+  if hLineAt(board,r1,c1) or hLineAt(board,r2,c2):
+    swap(board, r1, c1, r2, c2)
+    return True
+  elif vLineAt(board,r1,c1) or vLineAt(board,r2,c2):
+    swap(board, r1, c1, r2, c2)
+    return True
+  swap(board,r1,c1,r2,c2)
+  return False
 
 #
 #  Identify two adjacent positions on the board that can be swapped to 
