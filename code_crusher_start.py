@@ -85,24 +85,32 @@ def clearAll(board, sym):
 #  Returns: True if the proposed swap creates a line.  False otherwise.
 #
 def vLineAt(board, r1, c1):
-  if r1 < 0 or r1 >= len(board ) : return False
+  if r1 < 0 or r1 >= len(board):
+    return False
   if (r1 > 0 and r1 < len(board) - 1):
-    if (board[r1][c1] == board[r1 + 1][c1]) and (board[r1][c1] == board[r1 - 1][c1]): return True
+    if (board[r1][c1] == board[r1 + 1][c1]) and (board[r1][c1] == board[r1 - 1][c1]):
+      return True
   if (r1 > 1):
-    if (board[r1][c1] == board[r1 - 1][c1]) and (board[r1][c1] == board[r1 - 2][c1]): return True
+    if (board[r1][c1] == board[r1 - 1][c1]) and (board[r1][c1] == board[r1 - 2][c1]):
+      return True
   if (r1 < len(board) - 2):
-    if (board[r1][c1] == board[r1 + 1][c1]) and (board[r1][c1] == board[r1 + 2][c1]): return True
+    if (board[r1][c1] == board[r1 + 1][c1]) and (board[r1][c1] == board[r1 + 2][c1]):
+      return True
 
   return False
 
 def hLineAt(board, r1, c1):
-  if c1 < 0 or c1 >= len(board[0]) : return False
+  if c1 < 0 or c1 >= len(board[0]):
+    return False
   if (c1 > 0 and c1 < len(board[0]) - 1):
-    if (board[r1][c1 - 1] == board[r1][c1]) and (board[r1][c1 + 1] == board[r1][c1]): return True
+    if (board[r1][c1 - 1] == board[r1][c1]) and (board[r1][c1 + 1] == board[r1][c1]):
+      return True
   if (c1 > 1):
-    if (board[r1][c1] == board[r1][c1 - 1]) and (board[r1][c1] == board[r1][c1 - 2]): return True
+    if (board[r1][c1] == board[r1][c1 - 1]) and (board[r1][c1] == board[r1][c1 - 2]):
+      return True
   if (c1 < len(board[0]) - 2):
-    if (board[r1][c1] == board[r1][c1 + 1]) and (board[r1][c1] == board[r1][c1 + 2]): return True
+    if (board[r1][c1] == board[r1][c1 + 1]) and (board[r1][c1] == board[r1][c1 + 2]):
+      return True
 
   return False
 
